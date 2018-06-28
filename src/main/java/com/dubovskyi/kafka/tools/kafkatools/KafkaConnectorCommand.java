@@ -22,4 +22,25 @@ public class KafkaConnectorCommand {
         Response response = client.newCall(request).execute();
         return response.body().string();
     }
+
+
+    String deleteKafkaConnector(String url) throws IOException {
+
+        Request request = new Request.Builder()
+                .url(url)
+                .delete()
+                .build();
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
+
+    String getKafkaConnectorStatus(String url) throws IOException {
+
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
 }
